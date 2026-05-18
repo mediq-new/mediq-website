@@ -1,0 +1,78 @@
+/** Mini Medikue “Q” mark — blue ring segments + green tail dot (matches brand logo). */
+export function MedikueLogoMark({ className = "h-12 w-12" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      className={className}
+      aria-hidden
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Q ring — segmented arcs */}
+      <path
+        d="M24 8a16 16 0 0 1 14.5 9.2"
+        stroke="#0052cc"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M38.5 17.2a16 16 0 0 1-2.8 12.5"
+        stroke="#0052cc"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M35.7 29.7a16 16 0 0 1-8.2 5.8"
+        stroke="#0052cc"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M27.5 35.5a16 16 0 0 1-10.8 0"
+        stroke="#0052cc"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M16.7 35.5a16 16 0 0 1-8.5-4.2"
+        stroke="#0052cc"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M8.2 31.3a16 16 0 0 1-4.5-9.5"
+        stroke="#0052cc"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M3.7 21.8a16 16 0 0 1 2.5-9.5"
+        stroke="#0052cc"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M6.2 12.3a16 16 0 0 1 8.5-6"
+        stroke="#0052cc"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14.7 6.3a16 16 0 0 1 9.3-1.5"
+        stroke="#0052cc"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      {/* Tail */}
+      <path
+        d="M32 32l9 9"
+        stroke="#0052cc"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      {/* Green live dot */}
+      <circle cx="41" cy="41" r="4.5" fill="#03a66d" />
+      <circle cx="41" cy="41" r="2" fill="#4ade80" opacity="0.9" />
+    </svg>
+  );
+}
