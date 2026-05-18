@@ -1,4 +1,11 @@
-# Build static site and deploy to GitHub Pages at https://medikue.com
+# Deploy static site to GitHub Pages → https://medikue.com
+#
+# REQUIRED (one-time, repo admin):
+#   Settings → Pages → Build and deployment → Source: "GitHub Actions"
+#   Settings → Pages → Custom domain: medikue.com
+#
+# Org repos: Organization settings → Pages → allow Pages for this repo.
+
 name: Deploy to GitHub Pages
 
 on:
@@ -13,35 +20,43 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: npm
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Build static site for GitHub Pages (medikue.com)
+      - name: Build static site
         env:
           GITHUB_PAGES: "true"
           GITHUB_PAGES_BASE: /
         run: npm run build
 
-      - name: SPA fallback for client-side routes
+      - name: Verify build output
+        run: test -f dist/client/index.html
+
+      - name: SPA fallback (future client routes)
         run: cp dist/client/index.html dist/client/404.html
 
-      - name: Ensure custom domain CNAME
+      - name: Custom domain
         run: echo "medikue.com" > dist/client/CNAME
 
-      - name: Upload Pages artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist/client
