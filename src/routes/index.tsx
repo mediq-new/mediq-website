@@ -9,11 +9,16 @@ import { FeatureQueueShowcase } from "@/components/feature-queue-showcase";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Medikue | Effortless Hospital Queue Orchestration" },
-      { name: "description", content: "Live in life, not in line. Book on your phone, track your queue, and arrive when it's almost your turn." },
-      { property: "og:title", content: "Medikue | Effortless Hospital Queue Orchestration" },
-      { property: "og:description", content: "Smart OP booking and real-time queue intelligence." },
+      { title: "Medikue | OP Booking & Live Hospital Queue Tracking" },
+      { name: "description", content: "Live in life, not in line. Book OP visits on your phone, track your queue position, and arrive when it is almost your turn." },
+      { name: "keywords", content: "medikue, mediq, OP booking platform, hospital queue management, outpatient booking app, live queue tracking, token booking app, hospital appointment queue" },
+      { property: "og:title", content: "Medikue | OP Booking & Live Hospital Queue Tracking" },
+      { property: "og:description", content: "Book OP visits online, track your token live, and reduce waiting time at hospitals." },
+      { property: "og:url", content: "https://medikue.com/" },
+      { name: "twitter:title", content: "Medikue | OP Booking & Live Hospital Queue Tracking" },
+      { name: "twitter:description", content: "Book OP visits online and follow live queue updates with Medikue." },
     ],
+    links: [{ rel: "canonical", href: "https://medikue.com/" }],
   }),
   component: Index,
 });
