@@ -17,7 +17,21 @@ export default defineConfig({
   ...(isGitHubPages ? { cloudflare: false } : {}),
   tanstackStart: {
     server: { entry: "server" },
-    ...(isGitHubPages ? { prerender: { enabled: true } } : {}),
+    ...(isGitHubPages
+      ? {
+          prerender: {
+            enabled: true,
+            routes: [
+              "/",
+              "/legal/privacy-policy",
+              "/legal/terms-of-service",
+              "/legal/refund-policy",
+              "/legal/cookie-policy",
+              "/legal/disclaimer",
+            ],
+          },
+        }
+      : {}),
   },
   ...(isGitHubPages
     ? {

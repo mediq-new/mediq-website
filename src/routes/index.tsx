@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Calendar, Eye, QrCode, CheckCircle2, Play, Shuffle, BellRing, Search, Ticket, Bell, Building2, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/medikue-logo.png";
@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Medikue | Effortless Hospital Queue Orchestration" },
-      { name: "description", content: "Smart OP booking and real-time queue intelligence. Live in life, not in line." },
+      { name: "description", content: "Live in life, not in line. Book on your phone, track your queue, and arrive when it's almost your turn." },
       { property: "og:title", content: "Medikue | Effortless Hospital Queue Orchestration" },
       { property: "og:description", content: "Smart OP booking and real-time queue intelligence." },
     ],
@@ -43,8 +43,11 @@ function Index() {
               Skip Hospital <br />
               <span className="text-[#0052cc]">Waiting Lines</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-[#41474d]">
-              "Live in life, not in line." Reimagining healthcare accessibility through high-performance digital orchestration. Smart OP booking & real-time queue intelligence.
+            <p className="mt-6 max-w-xl text-lg font-medium text-[#0052cc]">
+              Live in life, not in line.
+            </p>
+            <p className="mt-4 max-w-xl text-lg text-[#41474d]">
+              Book your visit on your phone, see your place in line, and come when it’s almost your turn—wait at home, not in the hospital corridor.
             </p>
             <StoreBadges className="mt-8" />
           </div>
@@ -211,17 +214,19 @@ function Index() {
           <div>
             <div className="text-xs font-bold uppercase tracking-wider text-[#71787e]">Legal</div>
             <ul className="mt-3 space-y-2 text-sm text-[#41474d]">
-              {[
-                { label: "Privacy Policy", href: "#" },
-                { label: "Terms of Service", href: "#" },
-                { label: "Refund Policy", href: "#" },
-                { label: "Cookie Policy", href: "#" },
-                { label: "Disclaimer", href: "#" },
-              ].map((link) => (
+              {(
+                [
+                  { label: "Privacy Policy", document: "privacy-policy" },
+                  { label: "Terms of Service", document: "terms-of-service" },
+                  { label: "Refund Policy", document: "refund-policy" },
+                  { label: "Cookie Policy", document: "cookie-policy" },
+                  { label: "Disclaimer", document: "disclaimer" },
+                ] as const
+              ).map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="hover:text-[#0052cc]">
+                  <Link to="/legal/$document" params={{ document: link.document }} className="hover:text-[#0052cc]">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
