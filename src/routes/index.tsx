@@ -40,13 +40,10 @@ function Index() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
           <div className="flex flex-col justify-center">
             <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-              Skip Hospital <br />
-              <span className="text-[#0052cc]">Waiting Lines</span>
+              Live in life, <br />
+              <span className="text-[#0052cc]">not in line.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg font-medium text-[#0052cc]">
-              Live in life, not in line.
-            </p>
-            <p className="mt-4 max-w-xl text-lg text-[#41474d]">
+            <p className="mt-6 max-w-xl text-lg text-[#41474d]">
               Book your visit on your phone, see your place in line, and come when it’s almost your turn—wait at home, not in the hospital corridor.
             </p>
             <StoreBadges className="mt-8" />
