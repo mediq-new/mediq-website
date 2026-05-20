@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import logoPng from "@/assets/medikue-logo.png";
 
 function NotFoundComponent() {
   return (
@@ -91,16 +92,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "icon",
-        type: "image/svg+xml",
-        href: "/favicon.svg",
+        type: "image/png",
+        href: logoPng,
       },
       {
         rel: "shortcut icon",
-        href: "/favicon.svg",
+        href: logoPng,
       },
       {
         rel: "apple-touch-icon",
-        href: "/favicon.svg",
+        href: logoPng,
       },
     ],
   }),
