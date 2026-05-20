@@ -1,158 +1,185 @@
-# Privacy Policy — content specification
+# Privacy Policy
 
-**Document type:** Privacy Policy / Privacy Notice  
-**Product:** Medikue (MediQ Smart OP Orchestration System)  
-**Controller:** Longbyte Software Private Limited  
-**PRD reference:** MediQ PRD v9.0 — §10 Security & Compliance, §12.2 Data Retention, Appendix C (KYC), §10.3 Walk-In Consent  
-**Status:** Spec for legal drafting — not publishable as-is
+**Medikue — Smart OP Orchestration Platform**
+
+**Last updated:** 20 May 2026  
+**Version:** 1.1
+
+This Privacy Policy describes how **Longbyte Software Private Limited** (“**Longbyte**”, “**we**”, “**us**”, “**our**”) collects, uses, stores, and shares personal data through **Medikue** when you use the Medikue patient mobile application, hospital staff tools, administrative portals, and related services (collectively, the “**Platform**”).
+
+This policy is intended to align with the **Digital Personal Data Protection Act, 2023 (India)** (“**DPDP Act**”) and other applicable laws. It supplements—but does not replace—any hospital-specific notices you may receive at the point of care.
 
 ---
 
-## 1. Introduction
+## 1. Who we are
 
-- Identify **Longbyte Software Private Limited** as the data fiduciary / service provider operating **Medikue**.
-- Explain that the policy applies to:
-  - **Patients** using the mobile app / PWA and web booking surfaces
-  - **Hospital staff** using the Staff Dashboard (tablet web)
-  - **Hospital administrators** onboarded to the platform
-  - **Visitors** to the marketing website (medikue.com)
-- State effective date and how users will be notified of material changes.
-- Contact: **support@medikue.com**; add `[PLACEHOLDER: Grievance Officer name, email]` for DPDP.
+Longbyte operates **Medikue**, a **staff-centric outpatient (OP) queue and booking platform** that connects patients, hospitals, and clinical staff for scheduled and walk-in visits. We act as a **technology and payments intermediary**: patient payments for eligible bookings are processed through our payment partner (Razorpay); hospital consultation fees are routed to hospital-linked accounts per our payment architecture.
 
-## 2. What Medikue does (context)
+**Data fiduciary / contact:**  
+Longbyte Software Private Limited (Medikue)  
+**Email:** support@medikue.com  
+**Grievance officer:** support@medikue.com *(appoint named officer per DPDP Act before publication)*
 
-- Queue orchestration for hospital **OP (outpatient)** visits: booking, walk-in registration, live queue position, EWT (Estimated Wait Time), check-in via QR, notifications.
-- **Not** a hospital, not a telemedicine provider, not an insurer — technology platform between patients and participating hospitals.
+---
 
-## 3. Categories of personal data collected
+## 2. Scope
 
-### 3.1 Patients
+This policy applies to:
 
-| Data | Purpose | PRD basis |
-|------|---------|-----------|
-| Phone number | OTP login (MFA), SMS/push notifications | §10.1 Patient auth: Phone OTP |
-| Name | Queue display, booking, prescriptions view | Lobby display uses truncated names |
-| Age / age flags (paediatric, elderly) | Queue fairness nudges for staff | Age &lt; 5 or &gt; 70 flags |
-| Booking & token history | OP visit policy, revisit reminders | `patient_visit_history`, visit policy |
-| Payment metadata | Platform Fee, optional Hospital Consultation Fee | Razorpay — not full card storage by Medikue |
-| Device / app identifiers | Push (FCM), session security | Notification stack |
-| Location | `[PLACEHOLDER: only if collected — specify or exclude]` | |
+- **Patients** using the Medikue patient app (booking, queue tracking, payments, notifications).
+- **Hospital staff** using staff dashboards for queue management, check-in, and session operations.
+- **Hospital administrators** configuring sessions, policies, and viewing operational ledgers where enabled.
+- **Visitors** to public lobby displays that show anonymised queue information.
 
-### 3.2 Walk-in patients (no app account)
+It does **not** govern clinical treatment decisions, which remain between you and the hospital and treating clinician.
 
-- Staff may register walk-ins **with or without** phone number (PRD §10.3).
-- If phone provided: SMS receipt; if not: printed token slip only.
-- Disclose that walk-in data is entered by hospital staff on the patient’s behalf.
+---
 
-### 3.3 Hospital staff & admins
+## 3. Personal data we collect
 
-| Data | Purpose |
-|------|---------|
-| Phone + hospital code | Staff authentication |
-| Staff actions (audit) | Queue reorder reasons, policy overrides |
-| Email + TOTP | Super Admin only |
+| Category | Examples | Purpose |
+|----------|----------|---------|
+| **Identity & contact** | Name, phone number (E.164), email (if provided), beneficiary details for multi-seat bookings | Account access, OTP authentication, booking, notifications |
+| **Visit & queue data** | Booking ID, session date/time, token number, check-in status, queue position, estimated wait | Operating the Smart Queue and displaying status |
+| **Payment data** | Order/payment references, amounts (platform fee and consultation fee in paise), refund status — **not** full card/UPI credentials (handled by Razorpay) | Processing payments, refunds, and reconciliation |
+| **Device & app data** | Push notification tokens (FCM), app version, locale | Delivering push notifications and improving reliability |
+| **Technical & audit logs** | IP address, API timestamps, queue/payment audit events | Security, fraud prevention, dispute resolution |
+| **Walk-in data (hospital-entered)** | Name/phone where staff captures them; or anonymised walk-in tokens with no PII | Issuing walk-in tokens and optional SMS |
 
-### 3.4 Hospital KYC (business data)
+We do **not** intentionally collect special categories of sensitive personal data (e.g. detailed medical diagnoses) for queue operation. Clinical records outside the Platform remain the hospital’s responsibility.
 
-- Legal entity name, PAN, GST, CIN/Trust ID, ROHINI ID (if applicable), bank account, cancelled cheque, signatory details (PRD Appendix C).
-- **Access:** Super Admin only; encrypted at rest (PRD §10.2).
-- **Not** patient-facing — clarify hospitals submit this under separate hospital agreement.
+---
 
-### 3.5 Prescription records
+## 4. How we use personal data
 
-- **Informational, non-legal** medication/instruction records entered by staff after consultation (PRD glossary).
-- Visible to patient in-app; retention **5 years** (PRD §12.2).
-- State prescriptions are **not** a substitute for official hospital medical records unless hospital policy says otherwise.
+We process personal data to:
 
-### 3.6 Website visitors
+1. Authenticate users (phone OTP for patients and staff; email/TOTP for platform administrators).
+2. Create and manage bookings, virtual tokens, and real-time queue state.
+3. Process payments and refunds via Razorpay (including route transfers to hospital linked accounts and reversals/refunds where applicable).
+4. Send transactional notifications (push and SMS) such as booking confirmation, queue updates, and cancellation/refund notices.
+5. Display privacy-aware information on lobby screens (e.g. truncated names where configured).
+6. Maintain audit logs for queue changes, cancellations, and financial events.
+7. Comply with law, enforce our Terms, and protect the Platform.
 
-- Cookies / analytics (cross-reference Cookie Policy).
-- Hospital onboarding form on marketing site: hospital name, location, optional email.
+We process data on lawful bases under the DPDP Act including **consent** (where required), **performance of contract** (providing the service you request), and **legitimate uses** (security, fraud prevention, and legal compliance).
 
-## 4. Sensitive personal data
+---
 
-- Health-related context: queue status, doctor name, session time, prescription **information** — treat as sensitive under DPDP where applicable.
-- Do **not** claim to collect clinical diagnoses unless product actually does in v1.
-- Special categories: document legal basis (consent / legitimate use for service delivery).
+## 5. How we protect personal data
 
-## 5. How data is used
+Measures described in our product architecture include:
 
-- Provide and improve queue, booking, EWT, check-in, notifications.
-- Enforce **OP Visit Policy** (follow-up limits per hospital rules).
-- Process payments and escrow (Razorpay / RazorpayX Escrow+ with trustee partners).
-- Fraud prevention, audit, dispute resolution.
-- Aggregated analytics (lobby density, EWT accuracy) — de-identified where possible.
-- Marketing: `[PLACEHOLDER: opt-in only if used]`.
+- **Encryption in transit:** HTTPS/TLS for all API communication.
+- **Encryption at rest** for designated PII in databases and backups.
+- **Encrypted logging:** Where personal data or PII appears in application, audit, or security logs, those fields are **encrypted or tokenised** in log storage—not stored as plain-text identifiers in log systems.
+- **Phone number protection:** Storage using one-way hashing/HMAC for lookup where implemented; limited retention of raw numbers in transient systems for SMS delivery only.
+- **Role-based access:** Hospital staff access is scoped to their hospital; administrative access is restricted.
+- **Audit trails** for material queue and payment actions.
+- **Financial record retention** for statutory periods (e.g. seven years for accounting-related logs where applicable).
 
-## 6. Legal bases (India — DPDP Act 2023)
+No security measure is perfect. You are responsible for safeguarding your device and OTP codes.
 
-- Consent for account creation, notifications, optional pre-pay.
-- **DPDP consent** flag for hospitals at onboarding (`dpdp_consent_given` in PRD data model).
-- Legitimate uses: security, fraud, legal compliance, service integrity.
-- Explain right to withdraw consent and effect on service (e.g. cannot book without phone OTP).
+---
+
+## 6. Offline walk-ins and hospital privacy
+
+When patients register **offline** at the hospital (walk-in without using the patient app), hospitals may choose to **anonymise** identifying details on the Platform—e.g. issuing tokens without name or phone—so the hospital can meet its own privacy and operational policies for on-site visitors.
+
+- **Anonymised walk-ins:** No name or phone is stored on Medikue; only token/queue metadata needed to run the session.
+- **Identified walk-ins:** Where staff enter name and/or phone, that data is processed like other visit data and subject to this policy and hospital rules.
+
+Hospitals remain responsible for their own paper registers, local privacy notices, and clinical records outside Medikue.
+
+---
 
 ## 7. Sharing and processors
 
-| Recipient | Purpose |
-|-----------|---------|
-| Participating **hospitals** | Care queue operations — patient name, token, visit history per that hospital |
-| **Razorpay** / **RazorpayX Escrow+** (Axis Trustee / RBL Bank) | Payments, escrow hold/release |
-| **Firebase FCM**, **Twilio** | Push and SMS |
-| **AWS** | Hosting |
-| **Kafka / internal services** | Event processing — state as infrastructure |
-| Super Admin / Longbyte staff | Support, KYC verification, escrow disputes |
+We share personal data only as needed to operate the Platform:
 
-- No sale of personal data.
-- Sub-processor list `[PLACEHOLDER: URL or annex]`.
-- Cross-border transfers: `[PLACEHOLDER: if AWS region outside India]`.
+| Recipient type | Role |
+|----------------|------|
+| **Hospitals** | Receive booking, token, and check-in information for patients attending their facility |
+| **Razorpay** | Payment aggregation, linked-account transfers, refunds, and merchant onboarding (hospitals complete KYC on Razorpay’s portal) |
+| **SMS / push providers** (e.g. Twilio, Firebase) | Delivering notifications |
+| **Cloud infrastructure** | Hosting databases, caches, and application services |
+| **Professional advisers** | Legal, audit, or compliance where required by law |
 
-## 8. Security measures (high level)
+We do **not** sell your personal data.
 
-From PRD §10.2–10.4:
-
-- PII encrypted at rest (AES-256).
-- Phone numbers: HMAC-hashed in primary DB; raw numbers only in transient notification cache.
-- Public lobby displays: **truncated names** only (e.g. Rav** S.).
-- HTTPS/TLS 1.3; OWASP mitigations.
-- Role-based access; hospital KYC restricted to Super Admin.
-- Append-only audit logs for queue changes, escrow, KYC updates.
-
-## 9. Data retention
-
-| Data type | Retention | PRD §12.2 |
-|-----------|-----------|-----------|
-| Queue / token data | 2 years | ✓ |
-| Financial / escrow records | 7 years | ✓ |
-| Audit logs | 5 years | ✓ |
-| Notification logs | 90 days | ✓ |
-| Prescription records | 5 years | ✓ |
-| Patient PII | Until deletion request; max **3 years** inactive | ✓ |
-| Hospital KYC | 7 years post-offboarding | ✓ |
-
-## 10. Individual rights (patients)
-
-- Access, correction, deletion request (DPDP: fulfil within **30 days** per PRD §10.2).
-- Deletion scope includes: visit history, revisit schedules, prescriptions.
-- SMS opt-out: reply **STOP** (PRD §10.3).
-- Download/portability: `[PLACEHOLDER]`.
-- Nominate contact for incapacity: `[PLACEHOLDER per DPDP]`.
-
-## 11. Children
-
-- Paediatric flag (&lt; 5) is for queue priority only — clarify if accounts for minors require guardian consent.
-
-## 12. Changes to this policy
-
-- Notice via app, email, or website banner for material changes.
-
-## 13. Grievance and authority
-
-- Grievance officer details `[PLACEHOLDER]`.
-- Right to complain to Data Protection Board of India under DPDP.
+International transfers, if any, will be conducted with appropriate safeguards required by law.
 
 ---
 
-## Drafting notes
+## 8. Retention
 
-- PRD open question #7: NABH / NMC compliance for digital queue records — legal to assess separately; do not over-promise certification in privacy policy.
-- Align with hospital’s own privacy notices where hospital is independent controller for clinical records.
+We retain personal data only as long as necessary for the purposes above, including:
+
+- **Active account and visit history** while you use the Platform and as needed for support and disputes.
+- **Audit and payment logs** for longer periods where required by law or legitimate business needs (financial logs may be retained for up to **seven years** where applicable).
+- **Notification logs** for operational periods defined in our internal retention schedule.
+
+When retention ends, we delete or anonymise data subject to backup and legal exceptions.
+
+---
+
+## 9. Your rights and account deletion (India)
+
+Subject to the DPDP Act and applicable rules, you may have the right to:
+
+- **Access** personal data we hold about you.
+- **Correct** inaccurate data.
+- **Erase** personal data when eligible.
+- **Withdraw consent** where processing is consent-based (without affecting prior lawful processing).
+- **Nominate** another person to exercise rights on your behalf in defined circumstances.
+- **Grievance redressal** through our grievance officer.
+
+### Delete account
+
+Medikue supports **in-app account deletion** for:
+
+- **Patients** — removes your Medikue account profile, visit/booking history, notification preferences, and other personal data held on Medikue for your user ID, subject to legal retention exceptions below.
+- **Hospital staff** — removes your staff profile and personal identifiers on Medikue; operational audit entries may retain minimal non-identifying references where required for security or financial compliance.
+
+After a successful deletion request, we **do not retain your personal data on Medikue** except where law requires (e.g. payment/audit records for statutory periods). Aggregated or fully anonymised analytics may remain.
+
+To exercise rights or request deletion, contact **support@medikue.com**. We will respond within timelines prescribed by law.
+
+If you are unsatisfied with our response, you may escalate to the **Data Protection Board of India** when constituted and as permitted by law.
+
+---
+
+## 10. Booking eligibility (all ages)
+
+- **No age restriction on booking:** Anyone may book or be booked for an OP visit through Medikue, including **children and minors**, subject to hospital availability and hospital rules.
+- If date of birth or age is collected, it is for identification or hospital operational purposes only—not to deny minors access.
+- Where a parent or guardian books on behalf of a child, the account holder confirms they are authorised to do so.
+- Medikue does **not** operate automated age-based queue priority; queue order follows standard rules and hospital staff actions.
+
+---
+
+## 11. Hospital KYC and Razorpay
+
+Hospitals onboard to receive consultation fees through **Razorpay linked accounts**. Medikue collects business contact and setup metadata; **PAN, bank, and KYC documents are submitted by hospitals directly to Razorpay**, not stored by Medikue for document review.
+
+---
+
+## 12. Cookies and similar technologies
+
+See our **[Cookie Policy](./cookie-policy.spec.md)** for web portals and related technologies. The patient mobile app primarily uses device identifiers and push tokens rather than browser cookies.
+
+---
+
+## 13. Changes
+
+We may update this Privacy Policy. Material changes will be notified in-app or by other reasonable means. The “Last updated” date reflects the current version.
+
+---
+
+## 14. Contact
+
+**Privacy, support, and grievance:** support@medikue.com
+
+---
+
+*This document is a product-aligned policy draft. Legal counsel should review before external publication.*

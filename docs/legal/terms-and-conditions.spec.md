@@ -1,172 +1,180 @@
-# Terms and Conditions (Terms of Service) — content specification
+# Terms of Service
 
-**Document type:** Terms of Service / Terms & Conditions  
-**Product:** Medikue (MediQ Smart OP Orchestration System)  
-**Provider:** Longbyte Software Private Limited  
-**PRD reference:** MediQ PRD v9.0 — Executive Summary, Personas, Fees, Booking states, Escrow, §10.1 Auth, Appendix C  
-**Status:** Spec for legal drafting — not publishable as-is
+**Medikue — Smart OP Orchestration Platform**
+
+**Last updated:** 17 May 2026  
+**Version:** 1.0
+
+These Terms of Service (“**Terms**”) govern access to and use of the Medikue platform, including the patient mobile application, hospital staff dashboards, administrative portals, APIs, lobby displays, and related services (collectively, the “**Platform**”).
+
+**Medikue** is the product name and brand for services operated by **Longbyte Software Private Limited** (“**Longbyte**”, “**we**”, “**us**”, “**our**”), a company incorporated in India. In these Terms, “Medikue” means the Platform and related services offered under that brand by Longbyte.
+
+By accessing or using the Platform, you agree to these Terms with **Longbyte**. If you do not agree, do not use the Platform.
 
 ---
 
-## 1. Agreement structure
+## 1. Definitions
 
-- Binding contract between user and **Longbyte Software Private Limited**.
-- Separate **Hospital Partner Agreement** / escrow tri-party terms for hospitals (Medikue + hospital + RazorpayX trustee) — patients are **not** party to that agreement but affected by hospital-configured rules.
-- By using Medikue (app, PWA, staff dashboard where applicable, website), user accepts these Terms.
-- Age capacity: 18+ to contract, or guardian for minors `[PLACEHOLDER]`.
+- **Patient** — an individual booking or attending an outpatient visit through the Platform.
+- **Hospital** — a healthcare facility onboarded to Medikue.
+- **Hospital staff** — authorised employees or agents of a Hospital using staff tools.
+- **Super Admin** — Longbyte-authorised personnel operating the central administration portal.
+- **Session** — a scheduled outpatient queue window for a doctor.
+- **Token** — a virtual queue position linked to a visit.
+- **Booking** — a patient reservation for one or more seats in a session.
+- **Platform fee** — Medikue’s non-refundable convenience fee.
+- **Consultation fee** — the hospital’s fee for the clinical visit, collected through the Platform where pre-payment is enabled.
 
-## 2. Service description
+---
 
-Medikue provides (PRD §1, §4):
+## 2. The service
 
-- **Smart Queue** — unified online + walk-in queue per doctor OP session.
-- **Virtual tokens** and live queue position / **EWT** (Estimated Wait Time).
-- **QR check-in** at hospital desk.
-- **Booking** with optional Hospital Consultation Fee pre-payment.
-- **Priority Tokens** when surgery block or hospital session cancellation occurs.
-- **OP Visit Policy** enforcement (hospital-configured follow-up limits).
-- **Token cap** per session; session full messaging.
-- **Prescription record** (informational, staff-entered) — not a legal prescription unless hospital says otherwise.
-- **Notifications** (push, SMS).
-- **Lobby display** (read-only, truncated names).
+Medikue provides **queue orchestration and booking technology** for outpatient departments. We are **not** a hospital, clinic, insurer, or medical practitioner. Clinical care, diagnosis, treatment, and medical records (except as stored for Platform features) are the **Hospital’s** responsibility.
 
-**Explicit exclusions:**
+The Platform may include:
 
-- Medikue does not provide medical advice, diagnosis, or treatment.
-- Doctors and hospitals remain responsible for clinical decisions.
-- EWT is **estimate only**, not a guarantee (cross-link Disclaimer).
+- Digital booking and seat selection (up to **3 seats** per booking where enabled).
+- Virtual tokens and QR check-in.
+- Live queue tracking and estimated wait information.
+- Payments via **Razorpay** (platform fee + optional consultation fee pre-payment).
+- Notifications (push and SMS).
+- Hospital staff tools for queue management, session configuration, and cancellations.
 
-## 3. User roles and accounts
+Features may change, be limited by Hospital configuration, or require active Razorpay linked-account status for payments.
 
-| Role | Access | Authentication (PRD §10.1) |
-|------|--------|----------------------------|
-| Patient | App / PWA | Phone OTP (MFA), JWT 30-day refresh |
-| Hospital staff | Staff Dashboard | Phone OTP + Hospital Code; 8h session; 15 min idle lock |
-| Super Admin | Internal portal | Email + TOTP; 4h session |
+---
 
-- User must provide accurate information.
-- Prohibited: sharing staff credentials, manipulating queue without authorisation, automated scraping, reverse engineering.
+## 3. Eligibility and accounts
 
-## 4. Relationship with hospitals
+### Patients
 
-- Hospitals are **independent** service providers; Medikue is a technology platform.
-- Hospital sets: OP visit policy, token cap, cancellation/no-show rules, consultation fees, surgery blocks.
-- Hospital may cancel sessions; patient remedies per Refund Policy and Priority Token rules.
-- Medikue not liable for hospital medical negligence, facility conditions, or staffing.
+- You must provide accurate information and maintain control of your phone number for OTP login.
+- You must have legal capacity to contract, or use the Platform through a parent/guardian who accepts these Terms on your behalf.
+- One booking must not misrepresent identity or payment authority.
 
-## 5. Booking, tokens, and queue rules
+### Hospital staff and administrators
 
-### 5.1 Token states (patient-visible outcomes)
+- Access is granted by the Hospital and Medikue. You must keep credentials confidential and use the Platform only for authorised operational purposes.
+- Hospitals are responsible for staff conduct and compliance with applicable healthcare regulations.
 
-From PRD: Booked → Confirmed → At-Clinic → In-Consultation → Completed; also No-Show, Cancelled, Rescheduled; future Diagnostics-Hold.
+### Super Admin
 
-### 5.2 Patient obligations
+- Restricted to Medikue-authorised personnel.
 
-- Arrive and **check in** via QR when required.
-- Monitor notifications; keep phone number current.
-- Late arrival may result in **bump** in queue (PRD scenarios).
-- No-show after “Next” called may forfeit fees per hospital policy.
+---
 
-### 5.3 Staff / hospital controls
+## 4. Bookings, queue, and conduct
 
-- Staff may reorder queue (emergency, VIP, paediatric/elderly nudge) with **mandatory reason** (audit).
-- Emergency / critical insertions may increase EWT for others.
-- Session pause, surgery block, session cancellation.
+4.1 **Availability** — Booking is subject to session capacity, Hospital rules, and system limits (including an advance booking horizon of up to **90 days**).
 
-### 5.4 OP Visit Policy
+4.2 **Check-in** — Attendance is confirmed when Hospital staff scans your token QR or accepts check-in per Hospital process. Queue position and estimated wait are **estimates**, not guarantees.
 
-- Hospital-configured: first visit window, max follow-ups, warn vs hard block modes.
-- Patient informed on booking when policy breached.
+4.3 **Fair use** — You must not abuse the queue, interfere with other patients, forge QR codes, or attempt to manipulate payments or refunds.
 
-### 5.5 Token cap
+4.4 **Hospital authority** — Hospitals may reorder queues (with logged reasons where required), call patients, mark consultations complete, mark no-shows, cancel sessions, and apply their operational policies within the Platform’s technical constraints.
 
-- When cap reached: online booking blocked; walk-in blocked at staff discretion.
+4.5 **No age-based queue priority** — Medikue does **not** guarantee or implement special queue priority based on age, paediatric status, or elderly status. Any clinical prioritisation is at the Hospital’s discretion outside automated priority rules.
 
-### 5.6 Priority Token (surgery block / session cancel)
+---
 
-- Issued at **no additional Platform Fee** for next session with same doctor.
-- Hospital Consultation Fee may transfer to new token (escrow).
-- Valid **90 days** (PRD default; confirm in Terms).
-- Queue priority ahead of standard bookings in next session.
+## 5. Payments
 
-### 5.7 Reschedule
+5.1 **Processor** — Payments are processed by **Razorpay**. Card/UPI/netbanking terms of Razorpay also apply.
 
-- Token reschedule within allowed window — Platform Fee not charged again (PRD).
+5.2 **Merchant of record** — Medikue is the merchant of record for patient charges. Consultation fees are transferred to Hospital linked accounts via Razorpay Route subject to hold and settlement rules described in the **[Refund Policy](./refund-policy.md)**.
 
-## 6. Fees and payments
+5.3 **Platform fee** — The platform convenience fee is disclosed at checkout and is **non-refundable in all circumstances**.
 
-| Fee type | Payer | Notes |
-|----------|-------|-------|
-| **Platform Convenience Fee** | Patient | Charged by Medikue per booking |
-| **Hospital Consultation Fee** | Patient (optional pre-pay) | Held in escrow until release conditions met |
+5.4 **Consultation fee** — Refundability depends on cancellation type and timing; see the **[Refund Policy](./refund-policy.md)**.
 
-- Payment processor: **Razorpay** (India).
-- Escrow: **RazorpayX Escrow+** (Axis Trustee Services / RBL Bank or ICICI per agreement).
-- Platform Fee is **non-refundable** in all cancellation scenarios listed in PRD (surgery block, session cancel, patient cancel, no-show) unless `[PLACEHOLDER: future policy change]`.
-- Hospital Consultation Fee subject to **Refund Policy** and hospital-configured windows.
+5.5 **Taxes** — Fees may be subject to applicable taxes. Hospitals are responsible for their own tax compliance on consultation income.
 
-## 7. Escrow (patient summary)
+5.6 **Failed payments** — If payment fails, your booking may not confirm. Do not assume a slot is reserved until the Platform shows confirmation.
 
-Plain-language summary (detail in Refund Policy):
+---
 
-- Pre-paid hospital fees held until session completed, cancelled, disputed, or Priority Token rules apply.
-- Payout to hospital typically within **24 hours** after session completion (PRD SLA).
-- Disputes may freeze funds up to **14 days** resolution.
+## 6. Cancellations and refunds
 
-## 8. Communications
+Cancellation and refund rules are detailed in the **[Refund Policy](./refund-policy.md)**, incorporated by reference. Key points:
 
-- User consents to transactional SMS/push for bookings, queue updates, surgery block, refunds.
-- Walk-in: SMS if phone given; printed slip if not (PRD §10.3).
-- Marketing messages: separate opt-in `[PLACEHOLDER]`.
+- Patient self-cancel requires **all** tokens on the booking to remain pre-check-in.
+- Hospital session cancellation refunds **pre-check-in** bookings; active visits may not receive automatic refunds.
+- No-show and completed visits do not qualify for consultation fee refunds.
 
-## 9. Acceptable use
+---
 
-- No abuse of staff, fraudulent bookings, payment chargebacks in bad faith.
-- Medikue may suspend accounts for fraud, policy breach, or legal request.
+## 7. Communications
 
-## 10. Intellectual property
+You consent to **transactional** SMS and push notifications (booking, queue, cancellation, refunds). Marketing messages, if any, will follow separate consent requirements.
 
-- Medikue brand, UI, software owned by Longbyte / licensors.
-- User grants licence to use data needed to operate the service.
+Walk-in patients may receive SMS when staff provide a phone number; hospitals may register anonymous walk-ins without PII.
 
-## 11. Availability and changes
+---
 
-- Target **99.9%** uptime (PRD NFR) — no absolute guarantee; maintenance windows.
-- Staff app **offline up to 4 hours** (local-first) — explain sync limitations.
-- Medikue may modify features; material adverse changes with notice.
+## 8. Intellectual property
 
-## 12. Limitation of liability
+The Platform, software, branding, and documentation are owned by Longbyte or its licensors. We grant you a limited, non-exclusive, revocable licence to use the Platform for its intended purpose. You may not reverse engineer, scrape, or resell the service.
 
-- Cap damages to fees paid in prior 12 months `[PLACEHOLDER: counsel to set]`.
-- Exclude indirect, consequential damages where law permits.
-- EWT / queue position errors — see Disclaimer.
-- Not liable for payment gateway or hospital acts.
+---
 
-## 13. Indemnity
+## 9. Privacy
 
-- User indemnifies Longbyte for misuse, false information, violation of Terms (subject to counsel review).
+Our **[Privacy Policy](./privacy-policy.md)** describes personal data practices. By using the Platform, you acknowledge that policy.
 
-## 14. Dispute resolution
+---
 
-- Governing law: **India**.
-- Courts / arbitration: `[PLACEHOLDER: city, e.g. Hyderabad]`.
-- Consumer forum rights preserved for eligible users under Indian law.
+## 10. Disclaimers
 
-## 15. Termination
+See the **[Disclaimer](./disclaimer.md)**. The Platform is provided **“as is”**. Clinical outcomes are not guaranteed. Estimated wait times are informational.
 
-- User may stop using service; deletion per Privacy Policy.
-- Longbyte may terminate for breach; effect on unused Priority Tokens and escrow per Refund Policy.
+---
+
+## 11. Limitation of liability
+
+To the maximum extent permitted by law:
+
+- Medikue is not liable for **medical malpractice**, clinical negligence, or Hospital acts/omissions.
+- We are not liable for **indirect, incidental, special, or consequential damages**, or lost profits.
+- Our aggregate liability for Platform-related claims shall not exceed the **platform fees** you paid to Medikue in the **twelve (12) months** before the claim, or **₹5,000**, whichever is greater.
+
+Some jurisdictions do not allow certain limitations; in those cases, limits apply to the fullest extent permitted.
+
+---
+
+## 12. Indemnity
+
+You agree to indemnify Medikue against claims arising from your misuse of the Platform, violation of these Terms, or infringement of third-party rights, except where caused by Medikue’s wilful misconduct.
+
+Hospitals agree to indemnify Medikue for claims arising from clinical services, staff actions, and inaccurate fee configuration, except where caused by Medikue’s wilful misconduct.
+
+---
+
+## 13. Suspension and termination
+
+We may suspend or terminate access for fraud, abuse, legal requirements, or non-payment. Hospitals may lose booking capability if Razorpay onboarding is incomplete or suspended.
+
+Upon termination, provisions that by nature survive (fees owed, liability limits, dispute resolution) remain in effect.
+
+---
+
+## 14. Governing law and disputes
+
+These Terms are governed by the **laws of India**. Courts at **[City, State — placeholder]** shall have exclusive jurisdiction, subject to mandatory consumer protections.
+
+We encourage contacting support before formal disputes. *(Arbitration clause to be added by Legal if required.)*
+
+---
+
+## 15. Changes
+
+We may modify these Terms. Continued use after notice constitutes acceptance where permitted by law. Material changes will be notified through the Platform or registered contact methods.
+
+---
 
 ## 16. Contact
 
-- **support@medikue.com**
-- Registered office: `[PLACEHOLDER: address, CIN]`
+**Support and legal:** support@medikue.com
 
 ---
 
-## Open PRD items for legal (Terms annex)
-
-- PRD Q3: Refund policy when patient cancels voluntarily — hospital-configurable; reference in Terms + Refund Policy.
-- PRD Q13: Platform Fee refunded on surgery block? — v9 says **retained**; Terms must match.
-- PRD Q17: Legal status of in-app prescription — informational only.
-- PRD Q19: Tri-party escrow agreement scope per hospital tier.
+*Legal counsel should review before external publication.*

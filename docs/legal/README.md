@@ -1,28 +1,22 @@
-# Medikue legal documents — specification index
+# Medikue — Legal & policy documents
 
-These files are **content specifications** (not final legal text) derived from **MediQ PRD v9.0** (2026-04-12). Use them to draft publishable policies for the Medikue marketing site and product.
+Product-aligned policy drafts (May 2026). **Legal review required** before publication.
 
-| Spec file | Footer link | Primary PRD sources |
-|-----------|-------------|---------------------|
-| [privacy-policy.spec.md](./privacy-policy.spec.md) | Privacy Policy | §10.2 Data Privacy, §12.2 Data Retention, §10.3 Walk-In Consent, KYC |
-| [terms-and-conditions.spec.md](./terms-and-conditions.spec.md) | Terms of Service | Personas, fees, escrow, booking states, hospital relationship |
-| [refund-policy.spec.md](./refund-policy.spec.md) | Refund Policy | §C.3 escrow release, cancellation table, Priority Token, Platform Fee |
-| [disclaimer.spec.md](./disclaimer.spec.md) | Disclaimer | EWT, prescriptions, not medical advice, hospital responsibility |
-| [cookie-policy.spec.md](./cookie-policy.spec.md) | Cookie Policy | Web properties, analytics placeholders, session/auth |
+| Document | File |
+|----------|------|
+| Privacy Policy | [privacy-policy.spec.md](./privacy-policy.spec.md) |
+| Terms of Service | [terms-and-conditions.spec.md](./terms-and-conditions.spec.md) |
+| Refund & Cancellation Policy | [refund-policy.spec.md](./refund-policy.spec.md) |
+| Cookie Policy | [cookie-policy.spec.md](./cookie-policy.spec.md) |
+| Disclaimer | [disclaimer.spec.md](./disclaimer.spec.md) |
 
-## Entity names (align all documents)
+**Contact (all policies):** support@medikue.com
 
-| Role | Name |
-|------|------|
-| Operating company | **Longbyte Software Private Limited** |
-| Consumer product / brand | **Medikue** (public website); **MediQ** (internal PRD name — use consistently in legal drafts) |
-| Support contact | **support@medikue.com** |
-| Governing law (proposed) | **India** — DPDP Act 2023, RBI payment/escrow norms, applicable IT Rules |
+**Legal entity:** Longbyte Software Private Limited  
+**Product / brand:** Medikue (internal product of Longbyte)
 
-## Before publication
+All published policies should name **Longbyte** as the contracting party and data fiduciary, and **Medikue** as the service users interact with.
 
-- [ ] Legal counsel review (India healthcare + payments)
-- [ ] Replace `[PLACEHOLDER]` fields (registered address, CIN, grievance officer)
-- [ ] Wire footer links from `src/routes/index.tsx` to real routes (e.g. `/legal/privacy`)
-- [ ] Version and “Last updated” date on each published page
-- [ ] Hindi/Telugu summaries if required by hospital partners (PRD v1 localisation: EN + TE + HI)
+**Intentionally excluded from these documents:** escrow accounts, Priority Tokens, and age-based queue priority or special handling for children, minors, or elderly patients.
+
+**Refund Policy source of truth:** live API logic (`cancellation-refund-tier.ts`, `cancel-patient-booking.use-case.ts`, `cancel-op-session.use-case.ts`, `payment-cancellation-refund.service.ts`) plus PRD v10 payment architecture (Route transfers, no escrow).

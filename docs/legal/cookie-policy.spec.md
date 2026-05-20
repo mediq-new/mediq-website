@@ -1,121 +1,144 @@
-# Cookie Policy — content specification
+# Cookie Policy
 
-**Document type:** Cookie Policy / Cookie Notice  
-**Product:** Medikue marketing website + web surfaces  
-**Provider:** Longbyte Software Private Limited  
-**PRD reference:** MediQ PRD v9.0 — tech stack (web apps), §10 security; marketing site scope (limited vs full app)  
-**Status:** Spec for legal drafting — not publishable as-is
+**Medikue — Smart OP Orchestration Platform**
+
+**Last updated:** 17 May 2026  
+**Version:** 1.0
+
+This Cookie Policy explains how **Longbyte Software Private Limited** (“**Longbyte**”, “**we**”, “**us**”, “**our**”) uses cookies and similar technologies on **Medikue** on our **web-based** properties (hospital staff dashboard, admin portal, and related web tools) and how mobile apps use comparable identifiers.
+
+For how we handle personal data generally, see the **[Privacy Policy](./privacy-policy.md)**.
 
 ---
 
-## 1. Scope
+## 1. What are cookies and similar technologies?
 
-This policy covers cookies and similar technologies on:
+**Cookies** are small text files stored on your browser when you visit a website.
 
-| Property | Technology (PRD) | Cookie intensity |
-|----------|------------------|------------------|
-| **medikue.com** marketing site | TanStack Start / React (current repo) | Low — mostly essential + analytics placeholders |
-| **Staff Dashboard** | React web (tablet) | Session/auth cookies when live |
-| **Patient PWA / web** | React Native + PWA | Auth, preferences, analytics `[when deployed]` |
-| **Lobby Display** | Static HTML + SSE | Minimal — likely no tracking cookies |
+**Similar technologies** include:
 
-- Native **mobile apps** may use device identifiers and local storage — cross-reference Privacy Policy; mention if app store privacy labels differ.
+- **Local storage / session storage** in browsers for app state and authentication tokens.
+- **Push notification tokens** (e.g. Firebase Cloud Messaging) on mobile devices — not browser cookies but used for comparable delivery purposes.
+- **Server-side session identifiers** and **JWTs** for authenticated API access.
 
-## 2. What are cookies
+This policy groups these under “cookies and similar technologies” where helpful.
 
-- Short plain-language explanation of cookies, local storage, session storage, pixels.
-- Similar technologies: SDK analytics, FCM tokens (push — not cookies but disclose in Privacy Policy).
+---
 
-## 3. Types of cookies used
+## 2. Scope
 
-### 3.1 Strictly necessary (essential)
+| Surface | Technologies |
+|---------|----------------|
+| **Staff dashboard (web)** | Browser cookies, local storage, session tokens |
+| **Admin portal (web)** | Browser cookies, local storage, session tokens |
+| **Patient mobile app** | Secure storage for auth tokens; FCM device tokens — **not** traditional HTTP cookies |
+| **Public lobby display** | Minimal storage; primarily real-time updates (e.g. SSE) without advertising trackers |
 
-| Name / purpose | Duration | Legal basis |
-|----------------|----------|-------------|
-| Session / auth tokens (JWT) | Session / 30-day refresh (patients per PRD) | Contract / legitimate interest |
-| CSRF / security | Session | Security |
-| Cookie consent preference | 12 months `[typical]` | Consent storage |
-| Load balancing / CDN | Session | Service delivery |
+We do **not** describe escrow, payment-hold, or legacy financial cookie flows — those are not part of the current product.
 
-- **Cannot be disabled** without breaking site.
+---
 
-### 3.2 Functional (optional)
+## 3. Why we use them
+
+### Strictly necessary
+
+Required for the Platform to function. Without these, services cannot be provided.
 
 | Purpose | Examples |
 |---------|----------|
-| Language preference | EN / TE / HI (PRD localisation v1) |
-| Large-text / accessibility mode | WCAG 2.1 AA target in PRD |
+| **Authentication** | Keeping you signed in after OTP or staff login |
+| **Security** | CSRF protection, session binding, fraud prevention |
+| **Load balancing** | Routing requests to healthy servers |
+| **Preference** | Language, hospital context for staff users |
 
-### 3.3 Analytics (placeholder — configure before publish)
+**Legal basis:** Legitimate interest / contract necessity (not subject to consent in many jurisdictions for strictly necessary cookies).
 
-| Provider | Status | PRD note |
-|----------|--------|----------|
-| `[PLACEHOLDER: e.g. Google Analytics 4, Plausible, PostHog]` | Not confirmed in PRD | Add only after DPA and consent banner |
-| Product analytics for queue KPIs | Internal — hospital-facing, not marketing site | |
+### Functional
 
-- Require **opt-in consent** before non-essential analytics cookies in India/EU-facing flows `[counsel: DPDP + IT Rules]`.
+Improve experience but are not strictly required.
 
-### 3.4 Marketing (placeholder)
+| Purpose | Examples |
+|---------|----------|
+| **UI state** | Remembering filters, table pagination, dashboard layout |
+| **Feature flags** | Enabling staged rollouts per environment |
 
-| Purpose | Status |
-|---------|--------|
-| Retargeting pixels | `[PLACEHOLDER: none unless added]` |
-| Social embeds | `[PLACEHOLDER]` |
+### Analytics (if enabled)
 
-- Default: **none** on v1 marketing site unless explicitly added.
+We may use first-party or privacy-oriented analytics to understand usage (pages visited, errors). **We do not use cookies for third-party advertising networks** in the current product scope.
 
-## 4. Third-party cookies
+If analytics cookies are introduced, we will update this policy and, where required, request consent before non-essential analytics on web properties.
 
-List when integrated:
+### Communications
 
-| Third party | Service | Cookies? |
-|-------------|---------|----------|
-| Razorpay | Checkout (future) | Payment session |
-| Firebase | Push (app) | May use app instance ID |
-| Cloudflare / AWS | Hosting | Security, performance |
-| `[Analytics vendor]` | Web stats | Yes — consent required |
-
-- Link to third-party privacy policies.
-
-## 5. How we use cookie data
-
-- Understand website traffic and improve marketing pages.
-- Remember consent choices.
-- Secure login for staff/admin portals.
-- **Not** used to make automated medical decisions.
-
-## 6. Managing cookies
-
-- **Browser settings** — how to block/delete cookies.
-- **Consent banner** on first visit (marketing site):
-  - Accept all / Reject non-essential / Customise
-  - Link to this policy and Privacy Policy
-- In-app: OS-level controls for mobile.
-
-## 7. Do Not Track
-
-- State whether service honours DNT signals `[typically: no, with explanation]`.
-
-## 8. Updates
-
-- Policy version date; notify via banner on material changes.
-
-## 9. Contact
-
-- **support@medikue.com**
-- Data protection queries cross-reference Privacy Policy grievance officer `[PLACEHOLDER]`.
+| Purpose | Technology |
+|---------|------------|
+| **Push notifications** | FCM registration tokens stored server-side |
+| **SMS** | No cookie; phone numbers processed per Privacy Policy |
 
 ---
 
-## Implementation checklist (engineering)
+## 4. Cookies we may set (web)
 
-- [ ] Inventory actual cookies set by `mediQ_website` dev/prod builds
-- [ ] Add consent banner before enabling analytics
-- [ ] Document cookies in privacy annex table after launch
-- [ ] Staff Dashboard: document session cookie names in security appendix
-- [ ] Cookie Policy URL: `/legal/cookies` (wire footer from `index.tsx`)
+Exact names may vary by deployment. Typical categories:
 
-## PRD gaps
+| Name / type | Type | Duration | Purpose |
+|-------------|------|----------|---------|
+| Session / auth token | HTTP-only cookie or local storage | Session or hours (staff: ~8h; admin: ~4h) | Authentication |
+| Refresh token | Secure storage | Per role policy (e.g. 30 days patient JWT refresh where implemented) | Maintain login |
+| `locale` / preferences | localStorage | Persistent until cleared | UI preferences |
+| CSRF / correlation ID | Session cookie | Session | Security |
 
-- PRD does not specify marketing analytics stack — treat as **placeholder** until stack chosen.
-- Patient app cookies covered primarily under Privacy Policy § device identifiers.
+We do **not** maintain a public advertising cookie inventory because we do not run ad targeting cookies in the MVP product.
+
+---
+
+## 5. Third-party cookies and services
+
+Third parties may set or process identifiers when you use integrated features:
+
+| Provider | Purpose | Policy link |
+|----------|---------|-------------|
+| **Razorpay** | Checkout and payment iframes/APIs on web checkout flows | [Razorpay Privacy](https://razorpay.com/privacy/) |
+| **Firebase (Google)** | Push notifications | [Google Privacy](https://policies.google.com/privacy) |
+| **Twilio** (if SMS webhooks) | SMS delivery | [Twilio Privacy](https://www.twilio.com/legal/privacy) |
+| **Hosting / CDN** | Infrastructure | Per provider |
+
+We do not control third-party cookies. Review their policies when interacting with payment or auth widgets.
+
+---
+
+## 6. Managing cookies
+
+### Web browsers
+
+You can block or delete cookies via browser settings. Blocking **strictly necessary** cookies may prevent login or staff dashboard use.
+
+### Mobile app
+
+Clear app data or uninstall to remove locally stored tokens. Disable push notifications in device settings to stop FCM delivery.
+
+### SMS opt-out
+
+Reply **STOP** where supported on transactional SMS from Medikue or the hospital’s sender ID policy.
+
+---
+
+## 7. Do Not Track
+
+We do not currently respond to browser “Do Not Track” signals because no industry standard is uniformly adopted. We minimise cross-site tracking by design.
+
+---
+
+## 8. Updates
+
+We will update this Cookie Policy when technologies change. Check the “Last updated” date.
+
+---
+
+## 9. Contact
+
+**support@medikue.com**
+
+---
+
+*Legal counsel should review before external publication.*

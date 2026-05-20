@@ -1,108 +1,112 @@
-# Disclaimer — content specification
+# Disclaimer
 
-**Document type:** Medical, service, and liability disclaimer  
-**Product:** Medikue (MediQ Smart OP Orchestration System)  
-**Provider:** Longbyte Software Private Limited  
-**PRD reference:** MediQ PRD v9.0 — EWT, Prescription Record glossary, Executive Summary, NFRs, open questions  
-**Status:** Spec for legal drafting — not publishable as-is
+**Medikue — Smart OP Orchestration Platform**
 
----
+**Last updated:** 17 May 2026  
+**Version:** 1.0
 
-## 1. General
+Please read this Disclaimer carefully before using the Medikue platform (“**Platform**”). It supplements the **[Terms of Service](./terms-and-conditions.spec.md)**, **[Privacy Policy](./privacy-policy.spec.md)**, and **[Refund Policy](./refund-policy.spec.md)**.
 
-- Medikue is a **software platform** for outpatient queue and appointment orchestration operated by **Longbyte Software Private Limited**.
-- Content on website and app is for **informational** purposes.
-- Using Medikue does **not** create a doctor–patient relationship with Longbyte or Medikue.
-
-## 2. Not medical advice
-
-- Medikue does **not** provide medical advice, diagnosis, treatment, or emergency services.
-- **Call local emergency services** for medical emergencies — do not rely on queue status or EWT.
-- All clinical decisions remain with **licensed healthcare providers** and **hospitals**.
-
-## 3. Estimated Wait Time (EWT)
-
-From PRD:
-
-- EWT is a **prediction** based on rolling average consultation duration and queue state — **not a guarantee**.
-- Target accuracy: variance &lt; 10 minutes for 85% of sessions (internal KPI) — **not promised** to users in legal text.
-- EWT may change due to: emergencies, critical insertions, no-shows, late arrivals, session pause, doctor delay, system latency.
-- User should rely on **live notifications** but remain prepared for variation.
-
-## 4. Queue position and fairness
-
-- Displayed token number and position may change due to **Smart Merge Engine** rules: walk-ins, emergencies, paediatric/elderly staff nudges, manual reorder with documented reason.
-- Medikue is not liable for perceived unfairness when hospital staff apply authorised queue rules.
-
-## 5. Hospital services
-
-- Hospitals are **independent** third parties; Medikue does not control quality, availability, or conduct of hospitals, doctors, or staff.
-- Consultation fees, clinical outcomes, wait times in physical facility, and facility safety are **hospital’s responsibility**.
-- Hospital cancellation, surgery blocks, and policy enforcement are set by hospital — see Terms and Refund Policy.
-
-## 6. Prescription records
-
-Critical PRD language (Glossary):
-
-> **Prescription Record** — An informational, non-legal record of medication/instructions recorded by staff after consultation; visible to patient in-app.
-
-Disclaimer must state:
-
-- In-app prescription is **informational** unless hospital or applicable law treats it otherwise.
-- **Not** a substitute for original hospital prescription, discharge summary, or regulated e-prescription where required.
-- PRD open Q17: legal status of in-app prescription — **do not claim** statutory e-prescription compliance until confirmed.
-- Patient must verify medicines with doctor/pharmacist.
-
-## 7. Payments and escrow
-
-- Payment and escrow services provided by regulated third parties (**Razorpay**, trustee banks).
-- Medikue facilitates booking payments but is not a bank.
-- Refund outcomes depend on event type — see Refund Policy; no guarantee of instant refund.
-
-## 8. Technology limitations
-
-From PRD NFR:
-
-- **99.9%** uptime target — service may be unavailable during maintenance or outages.
-- Staff dashboard may operate **offline up to 4 hours** — sync delays possible.
-- Real-time updates target **&lt;300ms** staff-to-patient — not guaranteed on all networks/devices.
-- Lobby display and app may show stale data during connectivity issues.
-
-## 9. Third-party links and integrations
-
-- Future HIS/EMR integrations (HIMS, Practo, etc.) per PRD open questions — disclaimer for third-party data accuracy `[PLACEHOLDER]`.
-- App Store / Play Store — separate platform terms apply.
-
-## 10. No warranties
-
-- Service provided **“as is”** and **“as available”** to extent permitted by Indian law.
-- Disclaim implied warranties of merchantability, fitness for particular purpose.
-
-## 11. Limitation of liability
-
-- Cross-reference Terms limitation of liability.
-- Not liable for: missed appointments due to user error, hospital closure, incorrect phone number, failure to receive SMS, medical harm, lost wages, travel costs.
-- Aggregate cap linked to fees paid `[PLACEHOLDER per Terms]`.
-
-## 12. Regulatory status
-
-- Do not claim **NABH**, **NMC**, or **CDSCO** approval unless obtained (PRD open Q7).
-- DPDP compliance is operational commitment — separate Privacy Policy.
-- RBI/regulated escrow via licensed partners — describe factually without implying Longbyte is RBI-licensed unless true.
-
-## 13. Changes
-
-- Disclaimer may be updated; continued use constitutes acceptance of current version.
-
-## 14. Contact
-
-- **support@medikue.com**
+**Medikue** is a product and brand of **Longbyte Software Private Limited** (“**Longbyte**”, “**we**”, “**us**”, “**our**”). Statements below about “Medikue” refer to the Platform and services Longbyte provides under that name.
 
 ---
 
-## Prominent UI placements (implementation checklist)
+## 1. Not medical advice or care
 
-- [ ] EWT shown near: “Estimate only — not guaranteed”
-- [ ] Prescription view: “Informational record — confirm with your doctor”
-- [ ] Booking checkout: link to Terms + Refund Policy
-- [ ] Footer: Disclaimer link (already placeholder `#`)
+Medikue (provided by Longbyte) is a **technology platform** for outpatient queue management, booking, and payments. We **do not**:
+
+- Provide medical advice, diagnosis, or treatment.
+- Employ the doctors or hospitals listed on the Platform.
+- Guarantee clinical outcomes, appropriateness of care, or availability of any practitioner.
+
+All medical decisions are between **you and the hospital / treating clinician**. In an emergency, contact local emergency services immediately — **do not rely on the Platform for emergency care**.
+
+---
+
+## 2. Hospital relationship
+
+Hospitals are **independent** entities. Medikue:
+
+- Does not supervise clinical staff or hospital policies.
+- Does not set consultation fees (hospitals configure fees within Platform constraints).
+- Is not responsible for hospital cancellations, surgery schedules, staffing shortages, or on-site disputes.
+
+Hospital-specific rules (check-in windows, documentation, prescriptions) may apply beyond what the Platform displays.
+
+---
+
+## 3. Queue and wait-time estimates
+
+**Estimated wait times (EWT)** and queue positions are **algorithmic estimates** based on session data. They are **not guarantees** of when you will be seen. Delays may occur due to emergencies, doctor availability, diagnostics, or operational factors.
+
+---
+
+## 4. Payments and refunds
+
+Payment processing uses **Razorpay** and banking networks. Medikue:
+
+- Initiates refunds per the **[Refund Policy](./refund-policy.md)** when system rules apply.
+- Does **not** control how quickly banks or UPI issuers post credits.
+- Does **not** refund the **platform convenience fee** in any scenario.
+
+Consultation fees may be held and settled to hospitals per Route transfer rules. This is **not** escrow; see the Refund Policy for hold and release behaviour.
+
+If a refund fails technically, operations review may be required — contact support with your booking reference.
+
+---
+
+## 5. No special treatment by age or vulnerability
+
+The Platform does **not** provide automated priority queue placement, fee waivers, or clinical pathways based on age (including children/minors or elderly patients). Any prioritisation at the facility is at the **hospital’s sole discretion** and may not be reflected in the app.
+
+---
+
+## 6. Technology limitations
+
+The Platform may experience downtime, bugs, notification delays, or inaccurate displays. Features vary by hospital onboarding status (e.g. Razorpay linked account must be **active** for online consultation-fee collection).
+
+QR codes and tokens can be misused if shared; protect your booking details.
+
+---
+
+## 7. Third-party services
+
+Razorpay, SMS providers, push services, and cloud hosts operate under their own terms. Medikue is not liable for third-party outages or security incidents outside our reasonable control.
+
+---
+
+## 8. Information accuracy
+
+You are responsible for accurate booking details (name, beneficiaries, session selection). Hospitals are responsible for session configuration and queue operations.
+
+Lobby displays may show **truncated names** for privacy; do not rely on lobby screens for identity verification in sensitive contexts.
+
+---
+
+## 9. Regulatory status
+
+Medikue’s payment model uses marketplace-style routing via Razorpay. Regulatory classification (including payment-aggregator or nodal-account requirements at scale) may evolve. This Disclaimer does not constitute legal or tax advice to hospitals or patients.
+
+---
+
+## 10. Limitation of liability
+
+To the fullest extent permitted by law, Longbyte (through Medikue) disclaims all warranties, express or implied, including merchantability and fitness for a particular purpose.
+
+See **Limitation of liability** in the **[Terms of Service](./terms-of-service.md)** for monetary caps.
+
+---
+
+## 11. Changes
+
+We may update this Disclaimer. Continued use constitutes acceptance where permitted by law.
+
+---
+
+## 12. Contact
+
+**Support and legal:** support@medikue.com
+
+---
+
+*This Disclaimer is a product-aligned draft. Legal counsel must review before external publication.*
