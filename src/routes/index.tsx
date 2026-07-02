@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Calendar, Eye, QrCode, CheckCircle2, Play, Shuffle, BellRing, Search, Ticket, Bell, Building2, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/medikue-logo.png";
+import staffLogo from "@/assets/medikue-staff-logo.png";
 import { LiveQueueCard } from "@/components/live-queue-card";
 import { StoreBadges } from "@/components/app-store-badges";
 import { FeatureQueueShowcase } from "@/components/feature-queue-showcase";
-import { MedikueLogoMark } from "@/components/medikue-logo-mark";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -286,7 +286,7 @@ function HospitalOnboarding() {
             </ul>
             <div className="mt-8 rounded-2xl border border-[#e1e5ea] bg-[#f8fafc] p-5">
               <div className="flex items-center gap-3">
-                <MedikueLogoMark className="h-10 w-10" />
+                <img src={staffLogo} alt="medikue staff" className="h-10 w-10 rounded-lg object-cover" />
                 <div>
                   <div className="text-sm font-semibold text-[#1a1c1e]">medikue staff (staff app)</div>
                   <div className="text-xs text-[#71787e]">For hospital teams on mobile and tablets</div>
