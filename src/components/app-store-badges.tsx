@@ -1,17 +1,30 @@
 type StoreBadgesProps = {
   className?: string;
   variant?: "light" | "dark";
+  appStoreHref?: string;
+  playStoreHref?: string;
+  appName?: string;
 };
 
-export function StoreBadges({ className = "", variant = "dark" }: StoreBadgesProps) {
+export function StoreBadges({
+  className = "",
+  variant = "dark",
+  appStoreHref = "#",
+  playStoreHref = "#",
+  appName,
+}: StoreBadgesProps) {
   const isLight = variant === "light";
+  const appLabel = appName ? ` for ${appName}` : "";
 
   return (
     <div className={`flex flex-wrap items-center gap-3 ${className}`}>
+      {appName ? <div className="w-full text-xs font-semibold uppercase tracking-wider text-[#71787e]">{appName}</div> : null}
       <a
-        href="#"
+        href={appStoreHref}
+        target="_blank"
+        rel="noopener noreferrer"
         className={`store-badge ${isLight ? "store-badge--light" : ""}`}
-        aria-label="Download on the App Store (coming soon)"
+        aria-label={`Download on the App Store${appLabel}`}
       >
         <svg viewBox="0 0 24 24" className="store-badge__icon" aria-hidden>
           <path
@@ -25,9 +38,11 @@ export function StoreBadges({ className = "", variant = "dark" }: StoreBadgesPro
         </span>
       </a>
       <a
-        href="#"
+        href={playStoreHref}
+        target="_blank"
+        rel="noopener noreferrer"
         className={`store-badge ${isLight ? "store-badge--light" : ""}`}
-        aria-label="Get it on Google Play (coming soon)"
+        aria-label={`Get it on Google Play${appLabel}`}
       >
         <svg viewBox="0 0 24 24" className="store-badge__icon" aria-hidden>
           <path

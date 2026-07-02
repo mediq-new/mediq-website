@@ -5,6 +5,7 @@ import logo from "@/assets/medikue-logo.png";
 import { LiveQueueCard } from "@/components/live-queue-card";
 import { StoreBadges } from "@/components/app-store-badges";
 import { FeatureQueueShowcase } from "@/components/feature-queue-showcase";
+import { MedikueLogoMark } from "@/components/medikue-logo-mark";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -51,7 +52,12 @@ function Index() {
             <p className="mt-6 max-w-xl text-lg text-[#41474d]">
               Book your visit on your phone, see your place in line, and come when it’s almost your turn—wait at home, not in the hospital corridor.
             </p>
-            <StoreBadges className="mt-8" />
+            <StoreBadges
+              className="mt-8"
+              appName="medikue (patient app)"
+              appStoreHref="https://apps.apple.com/us/app/medikue/id6779742273"
+              playStoreHref="https://play.google.com/store/apps/details?id=com.medikue.patient&hl=en_IN"
+            />
           </div>
 
           <LiveQueueCard />
@@ -278,6 +284,20 @@ function HospitalOnboarding() {
                 </li>
               ))}
             </ul>
+            <div className="mt-8 rounded-2xl border border-[#e1e5ea] bg-[#f8fafc] p-5">
+              <div className="flex items-center gap-3">
+                <MedikueLogoMark className="h-10 w-10" />
+                <div>
+                  <div className="text-sm font-semibold text-[#1a1c1e]">medikue staff (staff app)</div>
+                  <div className="text-xs text-[#71787e]">For hospital teams on mobile and tablets</div>
+                </div>
+              </div>
+              <StoreBadges
+                className="mt-4"
+                appStoreHref="https://apps.apple.com/us/app/medikue-staff/id6779743389"
+                playStoreHref="https://play.google.com/store/apps/details?id=com.medikue.staff&hl=en_IN"
+              />
+            </div>
           </div>
           <form onSubmit={handleSubmit} className="relative rounded-2xl border border-[#e1e5ea] bg-white p-6 shadow-lg md:p-8">
             <h3 className="text-lg font-bold">Get in touch</h3>
